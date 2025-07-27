@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mask Recommender</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Mask Recommender </h1> 
+    <header class="header">
+        <nav class="navbar">
+            <a href="#">Mainpage</a>
+            <a href="#">History</a>
+        </nav>
+    </header>
+   
+    <header class="form">
+     <form action="/recommend" method="get">
+    <label for="city">City:</label>
+<input list="cities" id="city" name="city" placeholder="Start typing a city..." required>
+<datalist id="cities">
+  <option value="ulaanbaatar">Ulaanbaatar</option>
+<option value="beijing">Beijing</option>
+<option value="delhi">Delhi</option>
+<option value="seoul">Seoul</option>
+<option value="tokyo">Tokyo</option>
+<option value="hanoi">Hanoi</option>
+<option value="bangkok">Bangkok</option>
+<option value="jakarta">Jakarta</option>
+<option value="dhaka">Dhaka</option>
+<option value="tehran">Tehran</option>
+<option value="kabul">Kabul</option>
+<option value="kolkata">Kolkata</option>
+
+</datalist>
+<br>
+
+<label>Health Condition:
+  <select name="illness" required>
+    <option value="none">None</option>
+    <option value="highrisk">High-risk conditions</option>
+    <option value="sensitive">Sensitive</option>
+  </select>
+</label>
+<br>
+
+<label>Priority:
+  <select name="priority" required>
+    <option value="protection">Protection</option>
+    <option value="comfort">Comfort</option>
+    <option value="cost">Cost</option>
+  </select>
+</label>
+<br>
+</header>
+<label>
+    <input type="checkbox" name="cookie" value="yes"> This website uses cookies to ensure you get the best experience on our website. 
+Click the button on the left to agree.
+     </label><br>
+    <button type="submit">Recommend Mask</button>
+  </form>
+
+</body>
+</html>

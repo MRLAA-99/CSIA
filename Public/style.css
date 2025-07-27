@@ -1,0 +1,35 @@
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: rgb(0, 0, 0);
+  text-align: left;
+}
+form {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 40px;
+}
+.header {
+  text-align: right;
+}
+
+.navbar a {
+  margin: 0 60px;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-weight: bold;
+}
+button {
+  width: 140px;
+  padding: 8px;
+  background-color: #266183;
+  color: white;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 20px auto 0 auto; 
+  display: block;
+  transition: background 0.3s ease;
+}
