@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mask Recommendation Result</title>
+    <link rel="stylesheet" href="resultstyle.css">
+</head>
+<body>
+     <h1>Your Recommended Mask</h1>
+  <div id="resultBox">
+  </div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const maskName = params.get("name");
+  
+    // Mask data description
+    const products = {
+  "Cloth Mask": { desc:"Lightweight, breathable, reusable mask .Low pollution casual use when AQI is 1-2 for those who are ill",   img: "photo/Screenshot 2025-10-06 144453.jpg" } ,
+  "Surgical Mask": { desc:"Disposable medical masks, widely available.",  img: "photo/Screenshot 2025-10-06 144512.jpg" } ,
+  "Activated Carbon Mask": { desc:"Filters the odor and gas, Disposable mask", img: "photo/Screenshot 2025-10-06 144526.jpg" } ,
+  "2-Layer Cotton Mask": {  desc:"Lightweight, cheap, and Breathable", img : "photo/Screenshot 2025-10-06 144550.jpg" } ,
+  "Anti-Dust Mask (Non-medical)": { desc:"Lightweight, Filters visible dust and pollen", img:"photo/Screenshot 2025-10-06 144605.jpg" },
+  "PM2.5 Filter Mask": { desc:"Cheap, moderate protection", img: "photo/Screenshot 2025-10-06 145418.jpg"},
+  "KN95 (Generic)":{ desc:"Multi-layer filter, tight fit", img: "photo/Screenshot 2025-10-06 145432.jpg"},
+  "KF94":{ desc:"Efficient design, Moderate comfortable", img: "photo/Screenshot 2025-10-06 145444.jpg"},
+  "N95 (Certified)": { desc:"High-quality filtration, Tight seal", img: "photo/Screenshot 2025-10-06 145457.jpg"},
+  "N95 with Valve":{ desc:"Same as N95, but the for easier exhalation", img: "photo/Screenshot 2025-10-06 145508.jpg"},
+  "N99 / FFP3 Respirator":{ desc:"Filters 99% of the particles; typically used in industrial or medical areas", img: "photo/Screenshot 2025-10-06 145520.jpg"},
+  "Half-Face ":{ desc:"The filter is efficient and useful for toxic air", img: "photo/Screenshot 2025-10-06 145530.jpg"},
+  "Full-Face Respirator":{ desc:"Covers the entire face, fully protecting eyes, nose, etc.", img:"photo/Screenshot 2025-10-06 145540.jpg"},
+  "Fashion Mask (No Filter)":{ desc:"Stylish as an accessory but lacks filtration to protect ", img:"photo/Screenshot 2025-10-06 145550.jpg"},
+  "Fashion Mask (With Filter Pocket)":{desc:"Stylish mask that can function as PM 2.5 mask", img:"photo/Screenshot 2025-10-06 145602.jpg"},
+  "Transparent Mask with Filter":{desc:"Clear front for visibility around the space; includes hidden filtration", img:"photo/Screenshot 2025-10-06 145611.jpg"},
+  "Disposable Dust Mask":{desc:"Simple, thin dust filter, with extreme comfort",img:"photo/Screenshot 2025-10-06 145620.jpg"},
+  "Surgical Mask with Face Shield":{ desc:"High-level protection that covers eye by plastic", img:"photo/Screenshot 2025-10-06 145628.jpg"},
+  "Nanofiber Mask":{desc:"Lightweight, breathable, and specifically made with nanofiber for filtration purposes.",img:"photo/Screenshot 2025-10-06 145636.jpg" },
+  };
+
+    const resultBox = document.getElementById("resultBox");
+
+    if (maskName && products[maskName]) {
+  const mask = products[maskName];
+  resultBox.innerHTML = `
+    <div class="mask-card">
+      <img src="${mask.img}" alt="${maskName}" class="mask-img">
+      <div class="mask-name">${maskName}</div>
+      <div class="mask-desc">${mask.desc}</div>
+    </div>
+  `;
+}
+
+  </script>
+</body>
+</html>

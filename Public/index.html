@@ -3,63 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mask Recommender</title>
+  <title>Mask Recommender</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Mask Recommender </h1> 
-    <header class="header">
-        <nav class="navbar">
-            <a href="#">Mainpage</a>
-            <a href="#">History</a>
-        </nav>
-    </header>
-   
-    <header class="form">
-     <form action="/recommend" method="get">
-    <label for="city">City:</label>
-<input list="cities" id="city" name="city" placeholder="Start typing a city..." required>
-<datalist id="cities">
-  <option value="ulaanbaatar">Ulaanbaatar</option>
-<option value="beijing">Beijing</option>
-<option value="delhi">Delhi</option>
-<option value="seoul">Seoul</option>
-<option value="tokyo">Tokyo</option>
-<option value="hanoi">Hanoi</option>
-<option value="bangkok">Bangkok</option>
-<option value="jakarta">Jakarta</option>
-<option value="dhaka">Dhaka</option>
-<option value="tehran">Tehran</option>
-<option value="kabul">Kabul</option>
-<option value="kolkata">Kolkata</option>
+  <h1>Mask Recommender</h1>
 
-</datalist>
-<br>
+  <header class="header">
+    <nav class="navbar">
+      <a href="#">Mainpage</a>
+      <a href="#">History</a>
+    </nav>
+  </header>
 
-<label>Health Condition:
-  <select name="illness" required>
-    <option value="none">None</option>
-    <option value="highrisk">High-risk conditions</option>
-    <option value="sensitive">Sensitive</option>
-  </select>
-</label>
-<br>
+  <div class="form-wrapper">
+    <form id="maskForm">
+      <!-- location -->
+      <div class="form-group">
+        <label for="city">Location:</label>
+        <input list="cities" id="city" name="city" placeholder="Start typing a city..." required />
+        <datalist id="cities">
+          <option value="ulaanbaatar">Ulaanbaatar</option>
+          <option value="beijing">Beijing</option>
+          <option value="delhi">Delhi</option>
+          <option value="seoul">Seoul</option>
+          <option value="tokyo">Tokyo</option>
+          <option value="hanoi">Hanoi</option>
+          <option value="bangkok">Bangkok</option>
+          <option value="jakarta">Jakarta</option>
+          <option value="dhaka">Dhaka</option>
+          <option value="tehran">Tehran</option>
+          <option value="kabul">Kabul</option>
+          <option value="kolkata">Kolkata</option>
+        
+          
+        </datalist>
+      </div>
 
-<label>Priority:
-  <select name="priority" required>
-    <option value="protection">Protection</option>
-    <option value="comfort">Comfort</option>
-    <option value="cost">Cost</option>
-  </select>
-</label>
-<br>
-</header>
-<label>
-    <input type="checkbox" name="cookie" value="yes"> This website uses cookies to ensure you get the best experience on our website. 
-Click the button on the left to agree.
-     </label><br>
-    <button type="submit">Recommend Mask</button>
-  </form>
+      <!-- health condition -->
+      <br />
+      <div class="form-group">
+        <label>Health Condition:
+          <select name="illness" required>
+            <option value="none">None</option>
+            <option value="highrisk">High-risk conditions</option>
+            <option value="sensitive">Sensitive</option>
+          </select>
+        </label>
+      </div>
 
+      <!-- priority -->
+      <br />
+      <div class="form-group">
+        <label>Priority:
+          <select name="priority" required>
+            <option value="protection">Protection</option>
+            <option value="comfort">Comfort</option>
+            <option value="cost">Cost</option>
+          </select>
+        </label>
+      </div>
+
+      <!-- Cookie -->
+      <br />
+      <div class="form-group">
+        <label>
+          <input type="checkbox" name="cookie" value="yes" />
+          This website uses cookies to ensure you get the best experience on our website.
+          Click the button on the left to agree.
+        </label>
+      </div>
+
+      <!-- Submit Button -->
+      <br />
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- JS for form -->
+  <script>
+    document.getElementById("maskForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      const params = new URLSearchParams(formData).toString();
+
+      try {
+        const res = await fetch(`/recommend?${params}`);
+        const data = await res.json();
+
+        // Redirect to result.html with mask name
+        window.location.href = `result.html?name=${encodeURIComponent(data.recommendedMask.name)}`;
+      } catch (err) {
+        alert("Something went wrong ");
+        console.error(err);
+      }
+    });
+  </script>
 </body>
 </html>
