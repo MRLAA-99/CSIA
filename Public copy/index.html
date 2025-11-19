@@ -11,8 +11,8 @@
 
   <header class="header">
     <nav class="navbar">
-      <a href="#">Mainpage</a>
-      <a href="#">History</a>
+      <a href="index.html">Mainpage</a>
+      <a href="history.html">History</a>
     </nav>
   </header>
 
@@ -63,42 +63,12 @@
           </select>
         </label>
       </div>
-
-      <!-- Cookie -->
-      <br />
-      <div class="form-group">
-        <label>
-          <input type="checkbox" name="cookie" value="yes" />
-          This website uses cookies to ensure you get the best experience on our website.
-          Click the button on the left to agree.
-        </label>
-      </div>
-
       <!-- Submit Button -->
       <br />
       <button type="submit">Submit</button>
     </form>
   </div>
+  <script src="maskForm.js"></script>
 
-  <!-- JS for form -->
-  <script>
-    document.getElementById("maskForm").addEventListener("submit", async function (e) {
-      e.preventDefault();
-
-      const formData = new FormData(this);
-      const params = new URLSearchParams(formData).toString();
-
-      try {
-        const res = await fetch(`/recommend?${params}`);
-        const data = await res.json();
-
-        // Redirect to result.html with mask name
-        window.location.href = `result.html?name=${encodeURIComponent(data.recommendedMask.name)}`;
-      } catch (err) {
-        alert("Something went wrong ");
-        console.error(err);
-      }
-    });
-  </script>
 </body>
 </html>

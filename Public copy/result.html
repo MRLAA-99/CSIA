@@ -8,6 +8,12 @@
 </head>
 <body>
      <h1>Your Recommended Mask</h1>
+     <header class="header">
+    <nav class="navbar">
+       <a href="index.html">Mainpage</a>
+      <a href="history.html">History</a>
+    </nav>
+  </header>
   <div id="resultBox">
   </div>
   <script>
@@ -42,11 +48,13 @@
     if (maskName && products[maskName]) {
   const mask = products[maskName];
   resultBox.innerHTML = `
+   <img src="${mask.img}" alt="${maskName}" class="mask-img">
     <div class="mask-card">
-      <img src="${mask.img}" alt="${maskName}" class="mask-img">
+      <div class="mask-info">
       <div class="mask-name">${maskName}</div>
       <div class="mask-desc">${mask.desc}</div>
     </div>
+     </div>
   `;
 }
 

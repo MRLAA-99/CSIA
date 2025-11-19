@@ -1,0 +1,40 @@
+body {
+  background-color: lightblue;
+  padding: 30px;
+}
+
+#resultBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px; 
+}
+
+.mask-img {
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.mask-card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 350px; 
+  text-align: left;
+}
+
+.mask-desc {
+  font-size: 1.1em;
+  line-height: 1.4;
+}
+.header {
+  text-align: right;
+}
+.navbar a {
+  margin: 0 60px;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-weight: bold;
+}

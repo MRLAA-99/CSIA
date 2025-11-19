@@ -1,0 +1,30 @@
+body {
+  background-color: lightblue;
+  margin-top:20px;
+}
+.navbar a {
+  margin: 0 60px;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-weight: bold;
+}
+.header {
+  text-align: right;
+}
+.history-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px;
+}
+.history-card{
+  background: white;
+  padding: 20px; 
+  border-radius: 15px;
+  width: 150px; 
+  text-align: left;
+  margin-top: 20px;
+}
+
+
+
